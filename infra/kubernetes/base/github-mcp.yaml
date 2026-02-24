@@ -5,6 +5,9 @@ metadata:
     namespace: mcp-servers
 spec:
     transportType: "http"
+    httpTransport:
+        targetPort: 8080
+        path: /
     deployment:
         image: ghcr.io/github/github-mcp-server:latest
         port: 8080
