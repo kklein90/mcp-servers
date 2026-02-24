@@ -1,0 +1,16 @@
+apiVersion: kmcp.dev/v1alpha1
+kind: MCPServer
+metadata:
+    name: github-mcp
+    namespace: mcp-servers
+spec:
+    image: ghcr.io/github/github-mcp-server:latest
+    env:
+        - name: GITHUB_TOKEN
+          valueFrom:
+              secretKeyRef:
+                  name: mcp-servers-env
+                  key: GITHUB_TOKEN
+    transport:
+        type: http
+        port: 8080
