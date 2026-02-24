@@ -1,4 +1,4 @@
-apiVersion: kmcp.dev/v1alpha1
+apiVersion: kagent.dev/v1alpha1
 kind: MCPServer
 metadata:
     name: github-mcp
