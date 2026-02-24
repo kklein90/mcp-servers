@@ -10,7 +10,6 @@ spec:
         path: /
     deployment:
         image: ghcr.io/github/github-mcp-server:latest
-        cmd: env
         port: 8080
         secretRefs:
             - name: "mcp-servers-env"
