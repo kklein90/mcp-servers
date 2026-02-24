@@ -2,15 +2,27 @@ apiVersion: kagent.dev/v1alpha1
 kind: MCPServer
 metadata:
     name: github-mcp
-    namespace: kmcp-system
+    namespace: mcp-servers
 spec:
     transportType: "http"
     deployment:
         image: ghcr.io/github/github-mcp-server:latest
         port: 8080
-        env:
-            - name: GITHUB_TOKEN
-              valueFrom:
-                  secretKeyRef:
-                      name: mcp-servers-env
-                      key: GITHUB_TOKEN
+        secretRefs:
+            - name: "mcp-servers-env"
+
+# apiVersion: kagent.dev/v1alpha1
+# kind: MCPServer
+# metadata:
+#   creationTimestamp: null
+#   name: github-mcp
+#   namespace: mcp-servers
+# spec:
+#   deployment:
+#     args:
+#     - '@modelcontextprotocol/server-github'
+#     cmd: npx
+#     port: 3000
+#   stdioTransport: {}
+#   transportType: stdio
+# status: {}
