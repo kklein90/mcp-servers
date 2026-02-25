@@ -1,0 +1,17 @@
+apiVersion: kagent.dev/v1alpha1
+kind: MCPServer
+metadata:
+    name: github-mcp
+    namespace: mcp-servers
+spec:
+    transportType: "stdio"
+    # httpTransport:
+    #     targetPort: 8080
+    #     path: /
+    deployment:
+        image: ghcr.io/github/github-mcp-server:latest
+        cmd: "/server/github-mcp-server"
+        args: ["stdio"]
+        port: 8080
+        secretRefs:
+            - name: "mcp-servers-env"
