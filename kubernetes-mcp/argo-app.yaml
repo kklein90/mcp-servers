@@ -8,7 +8,7 @@ spec:
     source:
         repoURL: ghcr.io/containers/charts
         chart: kubernetes-mcp-server
-        targetRevision: "latest" # pin to a specific version in production
+        targetRevision: "0.1.0" # pin to a specific version in production
         helm:
             valuesObject:
                 ingress:
