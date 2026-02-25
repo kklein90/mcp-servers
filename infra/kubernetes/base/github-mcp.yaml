@@ -15,19 +15,3 @@ spec:
         port: 8080
         secretRefs:
             - name: "mcp-servers-env"
-
-# apiVersion: kagent.dev/v1alpha1
-# kind: MCPServer
-# metadata:
-#   creationTimestamp: null
-#   name: github-mcp
-#   namespace: mcp-servers
-# spec:
-#   deployment:
-#     args:
-#     - '@modelcontextprotocol/server-github'
-#     cmd: npx
-#     port: 3000
-#   stdioTransport: {}
-#   transportType: stdio
-# status: {}

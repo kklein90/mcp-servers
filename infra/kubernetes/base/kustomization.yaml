@@ -4,3 +4,4 @@ resources:
     - namespace.yaml
     - github-mcp.yaml
     - service-account.yaml
+    - k8s-mcp.yaml

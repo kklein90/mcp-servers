@@ -27,6 +27,8 @@ variable "github-key" {
   sensitive = true
 }
 
+variable "values-file" {}
+
 module "mcp-servers" {
   source     = "git@github.com:kklein90/terraform-modules.git//argocd/argocd-app/kustomize-app"
   argocd-pw  = var.argocd-pw
@@ -35,4 +37,17 @@ module "mcp-servers" {
   app-name   = "mcp-servers"
   env        = "home"
   namespace  = "mcp-servers"
+}
+
+module "k8s-mcp-server" {
+  source         = "git@github.com:kklein90/terraform-modules.git//argocd/argocd-app/helm-app"
+  argocd-pw      = var.argocd-pw
+  repo-url       = "oci://ghcr.io/containers/charts/kubernetes-mcp-server"
+  app-name       = "kubernetes-mcp-server"
+  namespace      = "mcp-servers"
+  chart-name     = "kubernetes-mcp-server"
+  chart-revision = "latest"
+  release-name   = "kubernets-mcp-server"
+  values-files   = ["${var.values-file}"]
+
 }
