@@ -10,7 +10,7 @@ spec:
     #     path: /
     deployment:
         image: ghcr.io/github/github-mcp-server:latest
-        cmd: "/github-mcp-server"
+        cmd: "/bin/github-mcp-server"
         args: ["stdio"]
         port: 8080
         secretRefs:
